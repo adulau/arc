@@ -7,11 +7,11 @@
 
 (declare 'atstrings t)
 
-(= this-site*    "My Forum"
-   site-url*     "http://news.yourdomain.com/"
-   parent-url*   "http://www.yourdomain.com"
+(= this-site*    "news.hack.lu - infosec news for the infosec community"
+   site-url*     "http://news.hack.lu/"
+   parent-url*   "http://www.hack.lu/"
    favicon-url*  ""
-   site-desc*    "What this site is about."               ; for rss feed
+   site-desc*    "news.hack.lu - infosec news for the infosec community"               ; for rss feed
    site-color*   (color 180 180 180)
    border-color* (color 180 180 180)
    prefer-url*   t)
@@ -402,6 +402,7 @@
      (tag head 
        (gen-css-url)
        (prn "<link rel=\"shortcut icon\" href=\"" favicon-url* "\">")
+       (prn "<link rel=\"alternate\" type=\"application/rss+xml\" href=\"/rss\" ")
        (tag script (pr votejs*))
        (tag title (pr ,title)))
      (tag body 
