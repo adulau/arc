@@ -44,4 +44,5 @@ else
     fi
 fi
 
+export arc_dir
 $rl mzscheme $opts $arc_dir/as.scm $@
