@@ -16,10 +16,17 @@
 (mac w/config (params . body)
      "Temporary override global valriables as supplied in `params'"
      (let store (apply symstore (map sym:car (pair params)))
-         (debug-show store)
          (with (assignment-expression (map [cons '= _] (pair params))
                 restoration-expression (map [cons '= _] store))
                `(do ,@assignment-expression
                   ,@body
                   ,@restoration-expression))))
+
+;; test
+(def try-to-tell() (debug-show a*))
+(= a* 20)
+(debug-show a*)
+(prn ((rep w/config) '(a* 5) '(try-to-tell)))
+(w/config (a* 5) (try-to-tell))
+(try-to-tell)
 
