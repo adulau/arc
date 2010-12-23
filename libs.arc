@@ -19,9 +19,10 @@
     (do (set required-files*.file)
         (load file))))
 
-(def import (file)
-     " Like `load' but looks for files in the directory where arc is installed"
-     (load:$.build-path ($.getenv "arc_dir") file))
+(let orig-load load
+  (def load (file)
+       " extend `load' so it looks for files in the directory where arc is installed"
+       (orig-load (find file-exists (list file ($.build-path ($.getenv "arc_dir") file))))))
 
 (def autoload ((o dirname "load"))
   " 'require each file in `dirname' ending in \".arc\".
