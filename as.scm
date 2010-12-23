@@ -17,5 +17,8 @@
   (if (null? args)
     (tl)
     ; command-line arguments are script filenames to execute
-    (for-each (lambda (f) (aload f)) args)))
+    ; (for-each (lambda (f) (aload f)) args)))
+    ; scratch that,
+    ; only the first argument is a script filename
+    (aload (car args))))
 
