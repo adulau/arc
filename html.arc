@@ -206,7 +206,7 @@
   (if (no options)
       '()
       (let ((opt val) . rest) options
-        (let meth (if (is opt 'style) opstring (opmeth spec opt))
+        (let meth (or (opmeth spec opt) opstring)
           (if meth
               (if val
                   (cons (if (precomputable-tagopt val)
