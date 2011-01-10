@@ -1,0 +1,9 @@
+; http://awwx.ws/between0
+
+(mac between (var expr within . body)
+  (w/uniq first
+    `(let ,first t
+       (each ,var ,expr
+         (unless ,first ,within)
+         (wipe ,first)
+         ,@body))))

@@ -3,7 +3,9 @@
             "html.arc"
             "srv.arc"
             "app.arc"
-            "prompt.arc"))
+            "prompt.arc"
+            "extend0.arc"
+            "between0.arc"))
 
 ; We define 'require here, rather than in a file in load/ so that things in
 ; load/ can use it for load-ordering.
