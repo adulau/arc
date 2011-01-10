@@ -31,7 +31,12 @@
      "Watches `file-name` for changes and runs (deleg file-name) on change"
      (watch (mtime file-name) (deleg file-name)))
 
+(def safeload (file-name)
+     (on-err 
+       [do (prn "\n\n****** loading " file-name " failed") (prn (details _)) nil]
+       (fn () (load file-name) t)))
+
 (def auto-reload (file-name)
      (prn "auto-reloading " file-name)
-     (watch-file file-name load))
+     (until (watch-file file-name safeload)))
 
