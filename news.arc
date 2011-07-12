@@ -402,7 +402,7 @@
      (tag head 
        (gen-css-url)
        (prn "<link rel=\"shortcut icon\" href=\"" favicon-url* "\">")
-       (prn "<link rel=\"alternate\" type=\"application/rss+xml\" href=\"/rss\" ")
+       (prn "<link rel=\"alternate\" type=\"application/rss+xml\" href=\"/rss\" >")
        (tag script (pr votejs*))
        (tag title (pr ,title)))
      (tag body 
